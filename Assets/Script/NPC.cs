@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class NPC : MonoBehaviour
 
     [SerializeField] private Texture2D cursorInteraccion;
     [SerializeField] private Texture2D cursorPorDefecto;
+    [SerializeField] private float tiempoDeGiro;
 
 
 
@@ -19,6 +21,7 @@ public class NPC : MonoBehaviour
     public void Interactuar(Transform interactuador)
     {
         Debug.Log(" Hola , estas interactuando conmigo");
+        transform.DOLookAt(interactuador.transform.position, tiempoDeGiro, AxisConstraint.Y);
     }
 
 

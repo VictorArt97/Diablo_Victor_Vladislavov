@@ -29,7 +29,6 @@ public class Player : MonoBehaviour
 
             {
                 npcActual.Interactuar(this.transform);
-               
                 npcActual = null;
                 agent.isStopped= true;
                 agent.stoppingDistance = 0;
