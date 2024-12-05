@@ -20,8 +20,8 @@ public class NPC : MonoBehaviour
 
     public void Interactuar(Transform interactuador)
     {
-        Debug.Log(" Hola , estas interactuando conmigo");
-        transform.DOLookAt(interactuador.transform.position, tiempoDeGiro, AxisConstraint.Y);
+        transform.DOLookAt(interactuador.transform.position, tiempoDeGiro, AxisConstraint.Y).OnComplete(()=> SistemaDeDialogo.sistema.IniciarDialogo());
+        
     }
 
 
