@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SistemaDeDialogo : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class SistemaDeDialogo : MonoBehaviour
     
     public static SistemaDeDialogo sistema;
     [SerializeField] GameObject marcos;
+    [SerializeField] private TMP_Text textoDialogo;
+
+    private bool escribiendo; // para saber si esta escribiendo o no
+    private int indiceFraseActual;
+
+    
 
     private void Awake()
     {
@@ -34,9 +41,25 @@ public class SistemaDeDialogo : MonoBehaviour
         }
     }
 
-    public void IniciarDialogo()
+    public void IniciarDialogo(DialogaSO dialogo)
     {
         marcos .SetActive(true);
 
     }
+
+    private void EscribirFrase()
+    {
+
+    }
+
+    private void SiguienteFrase()
+    {
+
+    }
+
+    private void TerminarDialogo()
+    {
+
+    }
+
 }

@@ -11,6 +11,8 @@ public class NPC : MonoBehaviour
     [SerializeField] private Texture2D cursorPorDefecto;
     [SerializeField] private float tiempoDeGiro;
 
+    [SerializeField] private DialogaSO dialogo;
+    
 
 
     void Start()
@@ -20,7 +22,7 @@ public class NPC : MonoBehaviour
 
     public void Interactuar(Transform interactuador)
     {
-        transform.DOLookAt(interactuador.transform.position, tiempoDeGiro, AxisConstraint.Y).OnComplete(()=> SistemaDeDialogo.sistema.IniciarDialogo());
+        transform.DOLookAt(interactuador.transform.position, tiempoDeGiro, AxisConstraint.Y).OnComplete(()=> SistemaDeDialogo.sistema.IniciarDialogo(dialogo));
         
     }
 
