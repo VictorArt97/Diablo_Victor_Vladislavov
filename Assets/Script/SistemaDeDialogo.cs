@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Runtime.CompilerServices;
 
 public class SistemaDeDialogo : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class SistemaDeDialogo : MonoBehaviour
 
     private DialogaSO dialogoActual;
 
+   
     
 
     private void Awake()
@@ -53,6 +55,7 @@ public class SistemaDeDialogo : MonoBehaviour
 
     private IEnumerator EscribirFrase()
     {
+        escribiendo = true;
         textoDialogo.text = "";
 
       char [] fraseEnLetras=   dialogoActual.frases[indiceFraseActual].ToCharArray();
@@ -63,16 +66,40 @@ public class SistemaDeDialogo : MonoBehaviour
 
             // espera
         }
+        escribiendo= false;
     }
 
     public void SiguienteFrase()
     {
-        Debug.Log("pasar a la siguiente frase");
+        if (escribiendo)
+        {
+            CompletarFrase();
+            escribiendo = false;
+        }
+        else
+        {
+            // avanzo de indice de frase y si aun me quedan frases las escribo y si no 
+            indiceFraseActual ++;
+            if (indiceFraseActual >= dialogoActual.frases.Length)
+            {
+               TerminarDialogo();
+            }
+            StartCoroutine(EscribirFrase());    
+        }
+          
+    }
+    private void CompletarFrase()
+    {
+        StopAllCoroutines();
+        textoDialogo.text= dialogoActual.frases[indiceFraseActual];
     }
 
     private void TerminarDialogo()
     {
-
+        marcos.SetActive(false);
+        StopAllCoroutines();
+        indiceFraseActual = 0; /// para reiniciar y volver a empezar 
+        dialogoActual = null; // ya no quedan dialogos hasta que me vuelvan a clicar
     }
 
 }
