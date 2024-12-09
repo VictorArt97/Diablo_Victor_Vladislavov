@@ -20,24 +20,29 @@ public class Player : MonoBehaviour
     
     void Update()
     {
-        Movimiento();
-
-        if (ultimoClic && ultimoClic.TryGetComponent(out NPC npc))
+        if (Time.timeScale ==1 )
         {
-            // comprobar si he llegado al NPC
-            agent.stoppingDistance = distanciaInteraccion;
-            if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+             Movimiento();
 
-            {
-                npc.Interactuar(this.transform);
-                ultimoClic = null;
+                    if (ultimoClic && ultimoClic.TryGetComponent(out NPC npc))
+                    {
+                        // comprobar si he llegado al NPC
+                        agent.stoppingDistance = distanciaInteraccion;
+                        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+
+                        {
+                            npc.Interactuar(this.transform);
+                            ultimoClic = null;
                 
-            }
+                        }
+                    }
+                    else if (ultimoClic)
+                    {
+                        agent.stoppingDistance = 0f;
+                    }
+
         }
-        else if (ultimoClic)
-        {
-            agent.stoppingDistance = 0f;
-        }
+       
        
     }
 

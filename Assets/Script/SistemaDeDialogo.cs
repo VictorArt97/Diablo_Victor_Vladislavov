@@ -47,6 +47,7 @@ public class SistemaDeDialogo : MonoBehaviour
 
     public void IniciarDialogo(DialogaSO dialogo)
     {
+        Time.timeScale = 0;
         // el dialogo actual con el que trabajamos es el que me dan por parametro de entrada
         dialogoActual = dialogo;
         marcos .SetActive(true);
@@ -62,7 +63,7 @@ public class SistemaDeDialogo : MonoBehaviour
         foreach (char letra in fraseEnLetras)
         {
             textoDialogo.text += letra;
-            yield return new WaitForSeconds(dialogoActual.tiempo);
+            yield return new WaitForSecondsRealtime(dialogoActual.tiempo);
 
             // espera
         }
@@ -100,6 +101,7 @@ public class SistemaDeDialogo : MonoBehaviour
         StopAllCoroutines();
         indiceFraseActual = 0; /// para reiniciar y volver a empezar 
         dialogoActual = null; // ya no quedan dialogos hasta que me vuelvan a clicar
+        Time.timeScale = 1f;
     }
 
 }
