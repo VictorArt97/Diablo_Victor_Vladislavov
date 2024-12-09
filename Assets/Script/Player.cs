@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private NavMeshAgent agent;
     private Camera cam;
 
-    private  NPC npcActual ; // guardo la Info de un npc actual con el que hablo
+    private  Transform ultimoClic ; // guardo la Info de un npc actual con el que hablo
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -21,18 +21,22 @@ public class Player : MonoBehaviour
     void Update()
     {
         Movimiento();
-        if (npcActual)
+
+        if (ultimoClic && ultimoClic.TryGetComponent(out NPC npc))
         {
             // comprobar si he llegado al NPC
-
+            agent.stoppingDistance = distanciaInteraccion;
             if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
 
             {
-                npcActual.Interactuar(this.transform);
-                npcActual = null;
-                agent.isStopped= true;
-                agent.stoppingDistance = 0;
+                npc.Interactuar(this.transform);
+                ultimoClic = null;
+                
             }
+        }
+        else if (ultimoClic)
+        {
+            agent.stoppingDistance = 0f;
         }
        
     }
@@ -46,19 +50,10 @@ public class Player : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                // Mirar a ver si el punto donde he impactado tiene el script NPC 
-
-                if (hit.transform.TryGetComponent(out NPC npc))
-                {
-                    // mira a ver si ese npc es el actual 
-                    npcActual = npc;
-
-                    // pararme a x metros del enemigo
-                    agent.stoppingDistance = distanciaInteraccion;
-
-                }
-
+                // Mirar a ver si el punto donde he impactado tiene el script NPC
+                // 
                 agent.SetDestination(hit.point);  // va a ir justo al punto del impacto 
+                ultimoClic = hit.transform;
 
             }
         }

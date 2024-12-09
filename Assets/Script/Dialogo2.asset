@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd439f887e05c5a40a7c455baba379d0, type: 3}
-  m_Name: Dialogo
+  m_Name: Dialogo2
   m_EditorClassIdentifier: 
   frases:
-  - 'Eres tan negro que tu  habilidad especial es apagar la luz '
-  - Cambiando de tema ....
-  - 'Joder si que eres negro me cago en dios '
-  - 'Basicamente que tienes que derrotar al rey demonio ahora vete '
-  tiempo: 0.1
+  - 'eehhhh '
+  - 'que quieres de mi ? '
+  - Comprar armas?
+  - Que va , yo no tengo de eso ... Y que quieres que haga ?
+  - 'Lo unico que tengo es merch de Hoshimachi Suisei '
+  - Pero no esta a la venta , jamas dejaria que alguien como tu tuviera a mi querida
+    Suisei
+  tiempo: 0
