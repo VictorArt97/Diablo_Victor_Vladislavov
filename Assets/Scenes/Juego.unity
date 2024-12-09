@@ -5991,6 +5991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   marcos: {fileID: 1787017128}
+  textoDialogo: {fileID: 931304930}
 --- !u!1001 &384206519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12355,7 +12356,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "ITS A NIGGER !!!!!!!!! \n AAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHH!!!!!!!!!!!!!!!!"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9fb3ed143a6e59e48aff5b2f1ef332de, type: 2}
   m_sharedMaterial: {fileID: -5851252920045010631, guid: 9fb3ed143a6e59e48aff5b2f1ef332de,
@@ -14919,6 +14920,7 @@ MonoBehaviour:
   cursorInteraccion: {fileID: 2800000, guid: 58dfbf39eee62f74aa8ab1183b776b2c, type: 3}
   cursorPorDefecto: {fileID: 2800000, guid: a5f9cc9a5efbe894eb85de4851711ba8, type: 3}
   tiempoDeGiro: 2
+  dialogo: {fileID: 11400000, guid: 2ba7d29e095259048b41149b42e38fd4, type: 2}
 --- !u!4 &1157744639
 Transform:
   m_ObjectHideFlags: 0

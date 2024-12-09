@@ -48,16 +48,26 @@ public class SistemaDeDialogo : MonoBehaviour
         // el dialogo actual con el que trabajamos es el que me dan por parametro de entrada
         dialogoActual = dialogo;
         marcos .SetActive(true);
+        StartCoroutine(EscribirFrase());
     }
 
-    private void EscribirFrase()
+    private IEnumerator EscribirFrase()
     {
+        textoDialogo.text = "";
 
+      char [] fraseEnLetras=   dialogoActual.frases[indiceFraseActual].ToCharArray();
+        foreach (char letra in fraseEnLetras)
+        {
+            textoDialogo.text += letra;
+            yield return new WaitForSeconds(dialogoActual.tiempo);
+
+            // espera
+        }
     }
 
-    private void SiguienteFrase()
+    public void SiguienteFrase()
     {
-
+        Debug.Log("pasar a la siguiente frase");
     }
 
     private void TerminarDialogo()

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Dialogo
   m_EditorClassIdentifier: 
   frases:
-  - 'eres tan negro que tu  habilidad especial es apagar la luz '
+  - 'Eres tan negro que tu  habilidad especial es apagar la luz '
   - Cambiando de tema ....
   - 'Joder si que eres negro me cago en dios '
   - 'basicamente que tienes que derrotar al rey demonio ahora vete '
-  tiempo: 0.11
+  tiempo: 0.3
