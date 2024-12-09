@@ -22,6 +22,8 @@ public class SistemaDeDialogo : MonoBehaviour
     private bool escribiendo; // para saber si esta escribiendo o no
     private int indiceFraseActual;
 
+    private DialogaSO dialogoActual;
+
     
 
     private void Awake()
@@ -43,8 +45,9 @@ public class SistemaDeDialogo : MonoBehaviour
 
     public void IniciarDialogo(DialogaSO dialogo)
     {
+        // el dialogo actual con el que trabajamos es el que me dan por parametro de entrada
+        dialogoActual = dialogo;
         marcos .SetActive(true);
-
     }
 
     private void EscribirFrase()
