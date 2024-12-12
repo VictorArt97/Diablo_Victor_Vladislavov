@@ -38,7 +38,8 @@ public class Player : MonoBehaviour
                 {
                     // traves de lookAt consigue que el jugador mire al NPC
                     // Yuna vez complete el giro estas 2 lineas
-                    transform.DOLookAt(npc.transform.position,tiempoDeGiro, AxisConstraint.Y).OnComplete(()=>LanzarInteraccion(npc));                                   
+                    // transform.DOLookAt(npc.transform.position,tiempoDeGiro, AxisConstraint.Y).OnComplete(()=>LanzarInteraccion(npc));
+                    LanzarInteraccion(npc);
                 }
             }
             else if (ultimoClic)
