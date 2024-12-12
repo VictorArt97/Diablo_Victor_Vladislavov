@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +7,15 @@ using UnityEngine.AI;
 public class Player : MonoBehaviour
 {
     [SerializeField]  private float distanciaInteraccion;
+    [SerializeField] private float tiempoDeGiro;
+
 
     private NavMeshAgent agent;
     private Camera cam;
 
     private  Transform ultimoClic ; // guardo la Info de un npc actual con el que hablo
+   
+    
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -24,26 +29,30 @@ public class Player : MonoBehaviour
         {
              Movimiento();
 
-                    if (ultimoClic && ultimoClic.TryGetComponent(out NPC npc))
-                    {
-                        // comprobar si he llegado al NPC
-                        agent.stoppingDistance = distanciaInteraccion;
-                        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+            if (ultimoClic && ultimoClic.TryGetComponent(out NPC npc))
+            {
+                // comprobar si he llegado al NPC
+                agent.stoppingDistance = distanciaInteraccion;
+                if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
 
-                        {
-                            npc.Interactuar(this.transform);
-                            ultimoClic = null;
-                
-                        }
-                    }
-                    else if (ultimoClic)
-                    {
-                        agent.stoppingDistance = 0f;
-                    }
+                {
+                    // traves de lookAt consigue que el jugador mire al NPC
+                    // Yuna vez complete el giro estas 2 lineas
+                    transform.DOLookAt(npc.transform.position,tiempoDeGiro, AxisConstraint.Y).OnComplete(()=>LanzarInteraccion(npc));                                   
+                }
+            }
+            else if (ultimoClic)
+            {
+                agent.stoppingDistance = 0f;
+            }
+        }      
+    }
 
-        }
-       
-       
+    private void LanzarInteraccion(NPC npc)
+    {
+        npc.Interactuar(this.transform);
+        ultimoClic = null;
+
     }
 
     private void Movimiento()
