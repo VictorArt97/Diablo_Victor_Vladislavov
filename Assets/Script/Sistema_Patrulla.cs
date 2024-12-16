@@ -61,5 +61,10 @@ public class Sistema_Patrulla : MonoBehaviour
 
         destinoActual = listadoPuntos[indiceActualRuta];
     }
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        // 1) mirar a ver si lo que entra en mi campo es el player 
+        // 2) si es el parar todas las corrutinas
+        // 3) desactivar este script y activar el sistema combate 
+    }
 }
