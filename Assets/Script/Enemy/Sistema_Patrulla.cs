@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Sistema_Patrulla : MonoBehaviour
 {
+    [SerializeField] private Enemigo main;
     [SerializeField] private Transform ruta;
 
    [SerializeField] private NavMeshAgent agent;
@@ -20,6 +21,8 @@ public class Sistema_Patrulla : MonoBehaviour
     private void Awake()
     {
        
+        // comunico al main que el sistema de patrulla soy yo
+        main.Patrulla = this;
 
         foreach (Transform punto in ruta)
         {
@@ -61,10 +64,18 @@ public class Sistema_Patrulla : MonoBehaviour
 
         destinoActual = listadoPuntos[indiceActualRuta];
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)  // atraves de un rango de vision el enemigo puede verme con una capsula
     {
         // 1) mirar a ver si lo que entra en mi campo es el player 
         // 2) si es el parar todas las corrutinas
         // 3) desactivar este script y activar el sistema combate 
+
+        if (other.CompareTag("Player"))
+        {
+            this.enabled = false;     // deshabilito patrulla
+            StopAllCoroutines();   // paro Corrutinas
+            main.ActivaCombate(other.transform);   
+
+        }
     }
 }
