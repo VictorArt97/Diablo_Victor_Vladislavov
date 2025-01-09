@@ -14,7 +14,7 @@ public class Sistema_Patrulla : MonoBehaviour
     List<Vector3> listadoPuntos = new List<Vector3>(); // la diferencia con un array es que su longitud es variable 
     private int indiceActualRuta=-1;
 
-  
+    [SerializeField] private float velocidadPatrulla;
 
 
 
@@ -35,9 +35,16 @@ public class Sistema_Patrulla : MonoBehaviour
     }
     void Start()
     {
+
+    }
+
+    private void OnEnable()
+    {
+        indiceActualRuta = -1; // empiezo desde el comienzo 
+        agent.speed = velocidadPatrulla; // vuelvo a la velocidad de patrulla
+        
         // voy recorriendo todos los putnos que tiene mi ruta  
         StartCoroutine(PatrullarYEsperar());
-
     }
 
     private IEnumerator PatrullarYEsperar()
