@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -16,12 +17,12 @@ public class Sistema_Combate : MonoBehaviour
     [SerializeField] private float distanciaAtaque;
     [SerializeField] private NavMeshAgent agent;
     private Transform target;
-     private Animator anim;
+    [SerializeField] private Animator anim;
     // awake vs onEnable vs Start 
     private void Awake()
     {
         main.Combate = this;
-        anim = GetComponent<Animator>();
+        
     }
 
     private void OnEnable()
@@ -37,9 +38,11 @@ public class Sistema_Combate : MonoBehaviour
         
         if (main.MainTarget && agent.CalculatePath(main.MainTarget.position, new NavMeshPath())) 
         {
+            EnfocarObjetivo();
+
             // voy persiguiendo al targer en todo momento 
             agent.SetDestination(main.MainTarget.position);
-            if (distanciaAtaque<=0)
+            if (agent.stoppingDistance<=distanciaAtaque)
             {
                 anim.SetBool("Attacking" , true);
             }
@@ -56,6 +59,16 @@ public class Sistema_Combate : MonoBehaviour
         }
     }
 
-   
+    private void EnfocarObjetivo()
+    {
+        Vector3 direccionATarget = (main.MainTarget.position - this.transform.position).normalized;
+        direccionATarget.y = 0;
 
+        Quaternion rotacionATarget = Quaternion.LookRotation(direccionATarget);
+        transform.rotation = rotacionATarget;
+    }
+
+    // hacer un evento de animacion en el momento en el que el enemigo ataca 
+    // hacer el script EnemyVisual y anadirlo a EnemyVisual 
+    //en ese script añadir el metodo Atacar que sea lanzado cuando se cumple el evento de Animacion
 }
