@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cofre : MonoBehaviour
+public class Cofre : MonoBehaviour, Iinteractuable
 {
     private Outline outline;
 
@@ -16,10 +16,7 @@ public class Cofre : MonoBehaviour
     }
 
 
-    void Start()
-    {
-       
-    }
+  
 
     
     void Update()
@@ -36,5 +33,11 @@ public class Cofre : MonoBehaviour
     {
         Cursor.SetCursor(cursorPorDefecto,Vector2.zero,CursorMode.Auto);
         outline.enabled = false;
+    }
+
+  
+    public void Interactuar(Transform interactuador)
+    {
+        
     }
 }

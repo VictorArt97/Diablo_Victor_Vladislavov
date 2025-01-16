@@ -15,6 +15,7 @@ public class Sistema_Combate : MonoBehaviour
     //3) marca como destino constantemente( update) al target definido en main
     [SerializeField] private float velodiadCombate;
     [SerializeField] private float distanciaAtaque;
+    [SerializeField] private float danhoAtaque;
     [SerializeField] private NavMeshAgent agent;
     private Transform target;
     [SerializeField] private Animator anim;
@@ -42,7 +43,7 @@ public class Sistema_Combate : MonoBehaviour
 
             // voy persiguiendo al targer en todo momento 
             agent.SetDestination(main.MainTarget.position);
-            if (agent.stoppingDistance<=distanciaAtaque)
+            if (!agent.pathPending && agent.stoppingDistance<=distanciaAtaque)
             {
                 anim.SetBool("Attacking" , true);
             }
@@ -59,6 +60,17 @@ public class Sistema_Combate : MonoBehaviour
         }
     }
 
+    #region Ejecutados por ejentos de animacion
+    private void Atacar()
+    {
+        // al poseer su transform puedo acceder a su codigo
+        main.MainTarget.GetComponent<Player>().HacerDanho(danhoAtaque);
+    }
+    private void FinAnimacionAtaque()
+    {
+        anim.SetBool("Attacking", false);
+    }
+    #endregion
     private void EnfocarObjetivo()
     {
         Vector3 direccionATarget = (main.MainTarget.position - this.transform.position).normalized;

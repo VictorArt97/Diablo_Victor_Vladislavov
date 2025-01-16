@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,30 +29,30 @@ public class Player : MonoBehaviour
         if (Time.timeScale ==1 )
         {
              Movimiento();
-
-            if (ultimoClic && ultimoClic.TryGetComponent(out NPC npc))
-            {
+        }
+        if (ultimoClic && ultimoClic.TryGetComponent(out Iinteractuable interactuable))
+        {
                 // comprobar si he llegado al NPC
                 agent.stoppingDistance = distanciaInteraccion;
                 if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
-
                 {
                     // traves de lookAt consigue que el jugador mire al NPC
                     // Yuna vez complete el giro estas 2 lineas
                     // transform.DOLookAt(npc.transform.position,tiempoDeGiro, AxisConstraint.Y).OnComplete(()=>LanzarInteraccion(npc));
-                    LanzarInteraccion(npc);
+                    LanzarInteraccion(interactuable);
                 }
-            }
-            else if (ultimoClic)
-            {
-                agent.stoppingDistance = 0f;
-            }
-        }      
+        }
+        
+        else if (ultimoClic)
+        {
+             agent.stoppingDistance = 0f;
+        }
+              
     }
 
-    private void LanzarInteraccion(NPC npc)
+    private void LanzarInteraccion(Iinteractuable interactuable)
     {
-        npc.Interactuar(this.transform);
+        interactuable.Interactuar(transform);
         ultimoClic = null;
 
     }
@@ -72,5 +73,10 @@ public class Player : MonoBehaviour
 
             }
         }
+    }
+
+    internal void HacerDanho(float danhoAtaque)
+    {
+        Debug.Log("me han hecho " + danhoAtaque + "de daño en los huevos");
     }
 }

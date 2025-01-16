@@ -33,16 +33,13 @@ public class Sistema_Patrulla : MonoBehaviour
         CalcularDestino();
 
     }
-    void Start()
-    {
-
-    }
+    
 
     private void OnEnable()
     {
-        indiceActualRuta = -1; // empiezo desde el comienzo 
+        //indiceActualRuta = -1; // empiezo desde el comienzo 
         agent.speed = velocidadPatrulla; // vuelvo a la velocidad de patrulla
-        
+        agent.stoppingDistance = 0;
         // voy recorriendo todos los putnos que tiene mi ruta  
         StartCoroutine(PatrullarYEsperar());
     }
