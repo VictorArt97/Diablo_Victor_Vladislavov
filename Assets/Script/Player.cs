@@ -8,15 +8,18 @@ using UnityEngine.AI;
 public class Player : MonoBehaviour
 {
     [SerializeField]  private float distanciaInteraccion;
+    [SerializeField]  private float distanciaAtaque;
     [SerializeField] private float tiempoDeGiro;
-
+  
 
     private NavMeshAgent agent;
     private Camera cam;
 
     private  Transform ultimoClic ; // guardo la Info de un npc actual con el que hablo
-   
-    
+   private PlayerAnimations playerAnimations;
+
+    public PlayerAnimations PlayerAnimations { get => playerAnimations; set => playerAnimations = value; }
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -42,10 +45,25 @@ public class Player : MonoBehaviour
                     LanzarInteraccion(interactuable);
                 }
         }
+        else if(ultimoClic&& ultimoClic.TryGetComponent(out Enemigo enemigo))
+        {
+            agent.stoppingDistance = distanciaAtaque;
+            if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+            {
+                // traves de lookAt consigue que el jugador mire al NPC
+                // Yuna vez complete el giro estas 2 lineas
+                // transform.DOLookAt(npc.transform.position,tiempoDeGiro, AxisConstraint.Y).OnComplete(()=>LanzarInteraccion(npc));
+
+
+                // LanzarAtaque();
+            }
+
+        }
         
         else if (ultimoClic)
         {
              agent.stoppingDistance = 0f;
+           
         }
               
     }
