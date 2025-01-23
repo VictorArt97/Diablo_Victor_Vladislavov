@@ -9,12 +9,9 @@ public class DialogaSO : ScriptableObject
     [TextArea]
     public String [] frases;
     public float tiempo;
-    // crear un Scriptable Object 
+    public bool tieneMision;
+    public string textoMision;
 
-    // crear las siguientes variables 
-    // coleccion de frases 
-
-    // tiempo entre letra y letra 
 
  
    

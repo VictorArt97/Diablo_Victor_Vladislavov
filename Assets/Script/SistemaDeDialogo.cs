@@ -12,11 +12,14 @@ public class SistemaDeDialogo : MonoBehaviour
 
     // una pregunta estatica no es una que no puedas cambiar , sino que ahce que pertenezca a la clase ( fabrica ) y no a las instancias de la clase ( productos)
 
-   // referencia al gamobjectr marcos y cuando private void OnConnectedToServer()
-    
+    // referencia al gamobjectr marcos y cuando private void OnConnectedToServer()
+
     //    inicie un dialogo 
+    [SerializeField] private EventManagerSO eventManager;    
     
+
     public static SistemaDeDialogo sistema;
+    
     [SerializeField] GameObject marcos;
     [SerializeField] private TMP_Text textoDialogo;
     [SerializeField] private Transform npcCamera;
@@ -105,8 +108,13 @@ public class SistemaDeDialogo : MonoBehaviour
         marcos.SetActive(false);
         StopAllCoroutines();
         indiceFraseActual = 0; /// para reiniciar y volver a empezar 
-        dialogoActual = null; // ya no quedan dialogos hasta que me vuelvan a clicar
         Time.timeScale = 1f;
+        if (dialogoActual.tieneMision == true)
+        {
+            eventManager.NuevaMision();
+        }
+        dialogoActual = null; // ya no quedan dialogos hasta que me vuelvan a clicar
+        
     }
 
 }
