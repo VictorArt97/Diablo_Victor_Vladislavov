@@ -13,8 +13,10 @@ public class SistemaMisiones : MonoBehaviour
     private void OnEnable()
     {
         eventManager.OnNuevaMision += ActivarToggleMision;
+        eventManager.OnActualizarMision += ActualizarToggle;
+        eventManager.OnTerminarMision += CerrarToggle;
     }
-   
+
 
     private void ActivarToggleMision(MisionSO mision)
     {
@@ -26,5 +28,13 @@ public class SistemaMisiones : MonoBehaviour
         }
         
         toggleMision[mision.indiceMision].gameObject.SetActive(true);
+    }
+    private void ActualizarToggle(MisionSO obj)
+    {
+        
+    }
+    private void CerrarToggle(MisionSO obj)
+    {
+        
     }
 }
