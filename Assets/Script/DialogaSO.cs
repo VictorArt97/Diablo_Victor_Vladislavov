@@ -9,9 +9,11 @@ public class DialogaSO : ScriptableObject
     [TextArea]
     public String [] frases;
     public float tiempo;
-    public bool tieneMision;
-    public string textoMision;
 
+
+    public bool tieneMision;
+   // public string textoMision;
+   public MisionSO mision;
 
  
    

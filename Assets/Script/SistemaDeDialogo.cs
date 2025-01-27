@@ -111,7 +111,8 @@ public class SistemaDeDialogo : MonoBehaviour
         Time.timeScale = 1f;
         if (dialogoActual.tieneMision == true)
         {
-            eventManager.NuevaMision();
+            //comunico el eM que hay una mision en estge dialogo
+            eventManager.NuevaMision(dialogoActual.mision);
         }
         dialogoActual = null; // ya no quedan dialogos hasta que me vuelvan a clicar
         

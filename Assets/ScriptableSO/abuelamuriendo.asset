@@ -19,4 +19,4 @@ MonoBehaviour:
   - "consigueme 3 ni\xF1os manzana, quiero usarlos como esclavos "
   tiempo: 0.1
   tieneMision: 1
-  textoMision: "Recolecta los 3 ni\xF1os sirios"
+  mision: {fileID: 11400000, guid: c36838433001b304dac948c4877c3d5e, type: 2}
