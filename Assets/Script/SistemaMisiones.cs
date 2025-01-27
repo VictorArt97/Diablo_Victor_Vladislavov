@@ -29,12 +29,12 @@ public class SistemaMisiones : MonoBehaviour
         
         toggleMision[mision.indiceMision].gameObject.SetActive(true);
     }
-    private void ActualizarToggle(MisionSO obj)
+    private void ActualizarToggle(MisionSO mision)
     {
         
     }
-    private void CerrarToggle(MisionSO obj)
+    private void CerrarToggle(MisionSO mision)
     {
-        
+        toggleMision[mision.indiceMision].Toggle.isOn = true;
     }
 }
