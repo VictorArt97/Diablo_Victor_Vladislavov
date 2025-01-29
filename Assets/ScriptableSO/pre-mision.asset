@@ -17,5 +17,5 @@ MonoBehaviour:
   - SEGURO QUE ME QUIERES ROBAR EL ORO MALDITO NEGRO
   - jAMAS CONSEGUIRAS MIS LINGOTES !!!
   tiempo: 0.1
-  tieneMision: 0
+  tieneMision: 1
   mision: {fileID: 11400000, guid: c36838433001b304dac948c4877c3d5e, type: 2}

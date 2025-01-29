@@ -19,9 +19,9 @@ public class seta : MonoBehaviour,Iinteractuable
         }
         else
         {
-            Destroy(this.gameObject);
-
+            eventManager.TerminarMision(misionAsociada);
         }
+            Destroy(this.gameObject);
     }
 
 
