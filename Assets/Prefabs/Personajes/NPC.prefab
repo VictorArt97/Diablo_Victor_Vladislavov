@@ -1763,11 +1763,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8efc7fea22157664499f169c3ed14437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventManager: {fileID: 11400000, guid: f792839c3047e3644b9ddbc9d5aec807, type: 2}
+  misionAsociada: {fileID: 11400000, guid: c36838433001b304dac948c4877c3d5e, type: 2}
   cursorInteraccion: {fileID: 2800000, guid: 58dfbf39eee62f74aa8ab1183b776b2c, type: 3}
   cursorPorDefecto: {fileID: 2800000, guid: a5f9cc9a5efbe894eb85de4851711ba8, type: 3}
   tiempoDeGiro: 2
   cameraPoint: {fileID: 5257148646742286194}
-  dialogo: {fileID: 11400000, guid: 2ba7d29e095259048b41149b42e38fd4, type: 2}
+  dialogoPreMision: {fileID: 11400000, guid: 2e01aade7d7463a44822ea42bfd83015, type: 2}
+  dialogoPostMision: {fileID: 11400000, guid: a871aea9c960bae43b8fc204b4646f52, type: 2}
+  dialogoActual: {fileID: 11400000, guid: 481fc93400a44c142a94089c20be917d, type: 2}
 --- !u!136 &2041904542970127040
 CapsuleCollider:
   m_ObjectHideFlags: 0
