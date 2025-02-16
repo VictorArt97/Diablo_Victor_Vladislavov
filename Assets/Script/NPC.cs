@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NPC : MonoBehaviour,Iinteractuable
 {
@@ -21,6 +22,8 @@ public class NPC : MonoBehaviour,Iinteractuable
     [SerializeField] private DialogaSO dialogoPostMision;
     [SerializeField] private DialogaSO dialogoActual;
 
+    [SerializeField] private GameObject barrera;
+
 
     private void Awake()
     {
@@ -29,6 +32,7 @@ public class NPC : MonoBehaviour,Iinteractuable
     void Start()
     {
         outline = GetComponent<Outline>();
+        barrera.SetActive(false);
     }
 
     public void Interactuar(Transform interactuador)
@@ -47,6 +51,8 @@ public class NPC : MonoBehaviour,Iinteractuable
         if(misionTerminada == misionAsociada)
         {
             dialogoActual = dialogoPostMision;
+
+            barrera.SetActive(true);
         }
     }
     

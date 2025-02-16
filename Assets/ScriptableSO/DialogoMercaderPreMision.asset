@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd439f887e05c5a40a7c455baba379d0, type: 3}
+  m_Name: DialogoMercaderPreMision
+  m_EditorClassIdentifier: 
+  frases:
+  - HOLA, TU DEBES DE SER AVENTURERO !!!
+  - Se lleva comentando muchos dias que eres nuevo por aqui y buscas una aventura
+    intrepida y desafiante...
+  - Pero lamento decirte que aqui no encontraras nada...
+  - "Hace ya unos 12 a\xF1os que los heroes del pueblo derrotaron al rey domonio
+    y conseguimos una paz que espero que perdure por siglos ...."
+  - "Pero supongo que eso sera una decepci\xF3n para ti..."
+  - Aunque si hay una mision que te puedo encomendar mi querido amigo...
+  - "Quiero que me consigas unas cuantas setas demoniacas , no se si te sonar\xE1n."
+  - 'Deberia de haber algunas cuantes en esta vieja mazmorra , asi que si no es mucho
+    problema , traemelas. Desde que me hechizaron para que no pueda volver a dejar
+    de bailar es imposible hacer nada...
+
+'
+  - Ahi nos vemos aventurero !! ah y ten cuidado con los hermanos Yorm, siendo la
+    hora que es segurmanete estan hasta arriba de hidromiel y buscan pelea con el
+    primero que se encuentran.
+  - MUCHO ANIMO
+  tiempo: 0
+  tieneMision: 1
+  mision: {fileID: 11400000, guid: 3fe899e26e0ed684cac549c8a7f4eb2f, type: 2}

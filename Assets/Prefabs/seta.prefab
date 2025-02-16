@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventManager: {fileID: 11400000, guid: f792839c3047e3644b9ddbc9d5aec807, type: 2}
-  misionAsociada: {fileID: 11400000, guid: c36838433001b304dac948c4877c3d5e, type: 2}
+  misionAsociada: {fileID: 11400000, guid: 3fe899e26e0ed684cac549c8a7f4eb2f, type: 2}
 --- !u!1 &3941048816181651051
 GameObject:
   m_ObjectHideFlags: 0
